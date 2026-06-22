@@ -1,0 +1,31 @@
+nome,descricao,temperatura_minima,temperatura_maxima,solo_ideal,umidade_ideal,epoca_plantio,tempo_colheita_dias,dificuldade
+Alface,Hortaliça de ciclo curto adequada para hortas familiares.,10,24,argiloso,média,outono/inverno,45,fácil
+Tomate,Cultura muito utilizada na agricultura familiar e com boa aceitação comercial.,18,28,argiloso,média,primavera/verão,90,média
+Cenoura,Raiz comestível indicada para solos leves e bem preparados.,15,25,arenoso,média,outono/inverno,90,média
+Mandioca,Cultura rústica e resistente muito importante para a agricultura familiar brasileira.,20,32,arenoso,baixa,primavera/verão,300,fácil
+Milho,Cultura amplamente cultivada no Brasil para alimentação humana e animal.,18,30,argiloso,média,primavera/verão,120,média
+Feijão,Cultura tradicional com grande importância alimentar e ciclo relativamente curto.,18,29,argiloso,média,primavera/verão,90,média
+Couve,Hortaliça resistente e produtiva comum em hortas familiares.,12,26,argiloso,média,ano todo,70,fácil
+Rúcula,Hortaliça de crescimento rápido ideal para pequenos espaços.,15,25,argiloso,média,outono/inverno,40,fácil
+Beterraba,Raiz nutritiva que se adapta bem a temperaturas amenas e solos férteis.,15,25,argiloso,média,outono/inverno,80,média
+Abóbora,Cultura de clima quente com boa rusticidade e uso alimentar diversificado.,20,32,argiloso,média,primavera/verão,120,fácil
+Pepino,Hortaliça de clima quente que exige boa disponibilidade de água durante o crescimento.,20,30,argiloso,alta,primavera/verão,60,média
+Pimentão,Cultura de clima quente bastante usada em hortas comerciais e familiares.,20,30,argiloso,média,primavera/verão,100,média
+Quiabo,Cultura resistente ao calor e bastante adaptada a regiões de clima quente.,22,35,argiloso,baixa,primavera/verão,70,fácil
+Batata-doce,Cultura rústica e produtiva que se adapta bem a solos leves e clima quente.,20,30,arenoso,baixa,primavera/verão,120,fácil
+Berinjela,Cultura de clima quente que precisa de boa luminosidade e solo bem drenado.,20,32,argiloso,média,primavera/verão,110,média
+Coentro,Erva aromática de ciclo curto usada em pequenos canteiros e hortas familiares.,18,30,arenoso,média,ano todo,40,fácil
+Salsa,Erva aromática de crescimento moderado indicada para solos férteis e úmidos.,15,25,argiloso,média,outono/inverno,70,fácil
+Cebolinha,Erva de fácil cultivo que pode ser plantada em canteiros pequenos e vasos.,15,30,argiloso,média,ano todo,80,fácil
+Repolho,Hortaliça folhosa que prefere clima mais ameno e solo rico em matéria orgânica.,12,24,argiloso,média,outono/inverno,100,média
+Espinafre,Hortaliça folhosa de ciclo curto que se desenvolve melhor em clima ameno.,10,24,argiloso,média,outono/inverno,50,fácil
+Almeirão,Hortaliça folhosa resistente e comum em hortas familiares.,12,26,argiloso,média,ano todo,60,fácil
+Chicória,Hortaliça folhosa indicada para clima ameno e solos férteis.,12,25,argiloso,média,outono/inverno,70,fácil
+Nabo,Raiz de ciclo curto que prefere temperaturas amenas e solos bem preparados.,10,24,arenoso,média,outono/inverno,60,média
+Rabanete,Cultura de ciclo muito curto ideal para pequenas hortas e testes de plantio.,10,25,arenoso,média,outono/inverno,30,fácil
+Abobrinha,Cultura de clima quente com crescimento rápido e boa produtividade.,18,30,argiloso,média,primavera/verão,60,fácil
+Melancia,Cultura de clima quente que precisa de espaço e boa luminosidade.,22,35,arenoso,baixa,primavera/verão,90,média
+Melão,Cultura de clima quente indicada para solos leves e bem drenados.,22,35,arenoso,baixa,primavera/verão,90,média
+Morango,Cultura sensível que prefere temperaturas amenas e manejo mais cuidadoso.,13,26,argiloso,média,outono/inverno,90,difícil
+Amendoim,Cultura de clima quente que se adapta bem a solos leves e bem drenados.,20,32,arenoso,baixa,primavera/verão,120,média
+Girassol,Cultura resistente e adaptável que pode ser usada para sementes e ornamentação.,18,32,argiloso,baixa,primavera/verão,100,fácil
