@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>AgroSeed - Recomendação</title>
+</head>
+<body>
+    <h1>🌱 Recomendador AgroSeed</h1>
+
+    <p>Informe as condições do plantio para receber recomendações de culturas.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label for="temperatura">Temperatura média (°C):</label>
+        <input type="number" step="0.1" name="temperatura" id="temperatura" required>
+
+        <br><br>
+
+        <label for="solo">Tipo de solo:</label>
+        <select name="solo" id="solo" required>
+            <option value="argiloso">Argiloso</option>
+            <option value="arenoso">Arenoso</option>
+        </select>
+
+        <br><br>
+
+        <label for="umidade">Umidade:</label>
+        <select name="umidade" id="umidade" required>
+            <option value="baixa">Baixa</option>
+            <option value="média">Média</option>
+            <option value="alta">Alta</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Gerar recomendações</button>
+    </form>
+
+    {% if recomendacoes %}
+        <hr>
+
+        <h2>Resultados da recomendação</h2>
+
+        {% for item in recomendacoes %}
+            <div>
+                <h3>{{ item.cultura.nome }} — {{ item.pontuacao }}% compatível</h3>
+
+                <p>{{ item.cultura.descricao }}</p>
+
+                <p><strong>Temperatura ideal:</strong> {{ item.cultura.temperatura_minima }}°C a {{ item.cultura.temperatura_maxima }}°C</p>
+                <p><strong>Solo ideal:</strong> {{ item.cultura.solo_ideal }}</p>
+                <p><strong>Umidade ideal:</strong> {{ item.cultura.umidade_ideal }}</p>
+                <p><strong>Época de plantio:</strong> {{ item.cultura.epoca_plantio }}</p>
+                <p><strong>Tempo de colheita:</strong> {{ item.cultura.tempo_colheita_dias }} dias</p>
+                <p><strong>Dificuldade:</strong> {{ item.cultura.dificuldade }}</p>
+
+                <strong>Motivos:</strong>
+                <ul>
+                    {% for motivo in item.motivos %}
+                        <li>{{ motivo }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
