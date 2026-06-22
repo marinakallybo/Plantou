@@ -1,70 +1,86 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>AgroSeed - Recomendação</title>
-</head>
-<body>
-    <h1>🌱 Recomendador AgroSeed</h1>
+{% extends "recomendador/base.html" %}
 
-    <p>Informe as condições do plantio para receber recomendações de culturas.</p>
+{% block title %}Recomendação | AgroSeed{% endblock %}
 
-    <form method="POST">
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="tag">Recomendador agrícola</p>
+        <h1>Encontre culturas adequadas para o seu plantio</h1>
+        <p>
+            Informe as condições do solo, temperatura e umidade para receber
+            recomendações de culturas mais compatíveis.
+        </p>
+    </div>
+</section>
+
+<section class="form-section">
+    <form method="POST" class="recommendation-form">
         {% csrf_token %}
 
-        <label for="temperatura">Temperatura média (°C):</label>
-        <input type="number" step="0.1" name="temperatura" id="temperatura" required>
+        <div class="form-group">
+            <label for="temperatura">Temperatura média (°C)</label>
+            <input type="number" step="0.1" name="temperatura" id="temperatura" required>
+        </div>
 
-        <br><br>
+        <div class="form-group">
+            <label for="solo">Tipo de solo</label>
+            <select name="solo" id="solo" required>
+                <option value="argiloso">Argiloso</option>
+                <option value="arenoso">Arenoso</option>
+            </select>
+        </div>
 
-        <label for="solo">Tipo de solo:</label>
-        <select name="solo" id="solo" required>
-            <option value="argiloso">Argiloso</option>
-            <option value="arenoso">Arenoso</option>
-        </select>
+        <div class="form-group">
+            <label for="umidade">Umidade</label>
+            <select name="umidade" id="umidade" required>
+                <option value="baixa">Baixa</option>
+                <option value="média">Média</option>
+                <option value="alta">Alta</option>
+            </select>
+        </div>
 
-        <br><br>
-
-        <label for="umidade">Umidade:</label>
-        <select name="umidade" id="umidade" required>
-            <option value="baixa">Baixa</option>
-            <option value="média">Média</option>
-            <option value="alta">Alta</option>
-        </select>
-
-        <br><br>
-
-        <button type="submit">Gerar recomendações</button>
+        <button type="submit" class="btn-primary">Gerar recomendações</button>
     </form>
+</section>
 
-    {% if recomendacoes %}
-        <hr>
+{% if recomendacoes %}
+<section class="results-section">
+    <div class="section-header">
+        <p class="tag">Resultados</p>
+        <h2>Culturas recomendadas</h2>
+    </div>
 
-        <h2>Resultados da recomendação</h2>
-
+    <div class="cards-grid">
         {% for item in recomendacoes %}
-            <div>
-                <h3>{{ item.cultura.nome }} — {{ item.pontuacao }}% compatível</h3>
+            <article class="crop-card">
+                <div class="card-top">
+                    <h3>{{ item.cultura.nome }}</h3>
+                    <span class="score">{{ item.pontuacao }}%</span>
+                </div>
 
-                <p>{{ item.cultura.descricao }}</p>
+                <p class="description">{{ item.cultura.descricao }}</p>
 
-                <p><strong>Temperatura ideal:</strong> {{ item.cultura.temperatura_minima }}°C a {{ item.cultura.temperatura_maxima }}°C</p>
-                <p><strong>Solo ideal:</strong> {{ item.cultura.solo_ideal }}</p>
-                <p><strong>Umidade ideal:</strong> {{ item.cultura.umidade_ideal }}</p>
-                <p><strong>Época de plantio:</strong> {{ item.cultura.epoca_plantio }}</p>
-                <p><strong>Tempo de colheita:</strong> {{ item.cultura.tempo_colheita_dias }} dias</p>
-                <p><strong>Dificuldade:</strong> {{ item.cultura.dificuldade }}</p>
+                <div class="info-grid">
+                    <p><strong>Temperatura:</strong> {{ item.cultura.temperatura_minima }}°C a {{ item.cultura.temperatura_maxima }}°C</p>
+                    <p><strong>Solo:</strong> {{ item.cultura.solo_ideal }}</p>
+                    <p><strong>Umidade:</strong> {{ item.cultura.umidade_ideal }}</p>
+                    <p><strong>Plantio:</strong> {{ item.cultura.epoca_plantio }}</p>
+                    <p><strong>Colheita:</strong> {{ item.cultura.tempo_colheita_dias }} dias</p>
+                    <p><strong>Dificuldade:</strong> {{ item.cultura.dificuldade }}</p>
+                </div>
 
-                <strong>Motivos:</strong>
-                <ul>
-                    {% for motivo in item.motivos %}
-                        <li>{{ motivo }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <hr>
+                <div class="motives">
+                    <strong>Motivos da recomendação:</strong>
+                    <ul>
+                        {% for motivo in item.motivos %}
+                            <li>{{ motivo }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
         {% endfor %}
-    {% endif %}
-</body>
-</html>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

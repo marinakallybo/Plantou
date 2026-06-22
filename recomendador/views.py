@@ -20,8 +20,11 @@ def recomendar(request):
         umidade = request.POST.get("umidade")
 
         culturas = Cultura.objects.all()
-        recomendacoes = recomendar_culturas(culturas, temperatura, solo, umidade)
+        recomendacoes = recomendar_culturas(culturas, temperatura, solo, umidade)[:5]
 
     return render(request, "recomendador/recomendar.html", {
         "recomendacoes": recomendacoes
     })
+
+def home(request):
+    return render(request, "recomendador/home.html")
