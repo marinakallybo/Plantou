@@ -51,12 +51,12 @@ body {
 .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
     color: #1C2B22;
     font-family: "Boogaloo", Arial, Helvetica, sans-serif;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 400;
+    letter-spacing: 0.5px;
     white-space: nowrap;
 }
 
@@ -70,6 +70,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 
 /* 
     LINKS DA NAVBAR
