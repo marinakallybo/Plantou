@@ -15,8 +15,13 @@
 */
 body {
     font-family: "Nunito", Arial, Helvetica, sans-serif;
-    background: #f4f7f2;
-    color: #1f2a1f;
+    background: #EAF2E3;
+    color: #1C2B22;
+}
+
+/* ÁREA SUPERIOR DA PÁGINA */
+.page-top {
+    padding: 20px 24px 0 24px;
 }
 
 /* 
@@ -25,12 +30,18 @@ body {
     Usa flexbox para deixar o logo de um lado e os links do outro.
 */
 .navbar {
-    background: #123d2a;
-    color: #ffffff;
-    padding: 16px 8%;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #f8faf7;
+    border: 1px solid #dde6d8;
+    border-radius: 22px;
+    padding: 16px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 8px 22px rgba(15, 61, 46, 0.06);
 }
 
 /* 
@@ -38,12 +49,15 @@ body {
     Agrupa o ícone e o nome do projeto.
 */
 .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #1C2B22;
     font-family: "Boogaloo", Arial, Helvetica, sans-serif;
     font-size: 34px;
     font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    white-space: nowrap;
 }
 
 
@@ -52,7 +66,7 @@ body {
     Controla o tamanho do emoji/ícone.
 */
 .logo {
-    font-size: 34px;
+    font-size: 30px;
     display: flex;
     align-items: center;
 }
@@ -65,6 +79,60 @@ body {
     display: flex;
     align-items: center;
     gap: 18px;
+}
+
+/* LINKS CENTRAIS */
+.navbar-center {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar-center a {
+    text-decoration: none;
+    color: #5a6558;
+    font-size: 16px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.navbar-center a:hover {
+    color: #1C2B22;
+}
+
+/* LADO DIREITO */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+}
+
+/* LINK ADMIN */
+.admin-link {
+    text-decoration: none;
+    color: #1C2B22;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* BOTÃO PRINCIPAL DA NAVBAR */
+.nav-cta {
+    text-decoration: none;
+    background: #0F3D2E;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    padding: 12px 20px;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav-cta:hover {
+    background: #0A2E22;
+    transform: translateY(-1px);
 }
 
 /* 
@@ -106,7 +174,7 @@ body {
     Área de destaque das páginas.
 */
 .hero {
-    background: linear-gradient(135deg, #dcefd5, #f7fbf4);
+    background: linear-gradient(135deg, #C8E6B9, #B8DDA3);
     border-radius: 24px;
     padding: 48px;
     margin-bottom: 32px;
@@ -118,7 +186,7 @@ body {
     Exemplo: "Banco de culturas", "Recomendador agrícola".
 */
 .tag {
-    color: #2f7d4f;
+    color: #0F3D2E;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 13px;
@@ -204,22 +272,23 @@ body {
     Usado para ações principais, como gerar recomendações.
 */
 .btn-primary {
-    padding: 13px 18px;
+    padding: 14px 22px;
     border: none;
-    border-radius: 12px;
-    background: #2f7d4f;
+    border-radius: 14px;
+    background: #0F3D2E;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 800;
     cursor: pointer;
-    font-size: 15px;
-    font-family: "Nunito", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    box-shadow: 0 8px 18px rgba(15, 61, 46, 0.3);
 }
 
 /* 
     EFEITO HOVER DO BOTÃO PRINCIPAL
 */
 .btn-primary:hover {
-    background: #256640;
+    background: #0A2E22;
+    transform: translateY(-1px);
 }
 
 /* 
@@ -254,7 +323,7 @@ body {
     padding: 24px;
     border-radius: 18px;
     border: 1px solid #dde8d8;
-    box-shadow: 0 8px 20px rgba(31, 42, 31, 0.06);
+    box-shadow: 0 8px 20px rgba(15, 61, 46, 0.06);
 }
 
 /* 
@@ -277,8 +346,8 @@ body {
     Aparece na página de recomendação.
 */
 .score {
-    background: #e4f5dc;
-    color: #256640;
+    background: #C8E6B9;
+    color: #0F3D2E;
     padding: 8px 12px;
     border-radius: 999px;
     font-weight: bold;
@@ -339,7 +408,22 @@ body {
 @media (max-width: 800px) {
     .navbar {
         flex-direction: column;
-        gap: 14px;
+        align-items: stretch;
+        padding: 20px;
+    }
+
+    .navbar-brand {
+        justify-content: center;
+    }
+
+    .navbar-center {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .navbar-right {
+        justify-content: center;
     }
 
     .recommendation-form {
@@ -357,6 +441,18 @@ body {
     .hero h1 {
         font-size: 32px;
     }
+
+    .hero-home {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-card {
+        padding: 22px;
+    }
 }
 
 /* 
@@ -368,6 +464,67 @@ body {
     gap: 14px;
     margin-top: 24px;
     flex-wrap: wrap;
+}
+
+.hero-home {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    max-width: 820px;
+    margin-bottom: 18px;
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 19px;
+    max-width: 720px;
+    line-height: 1.7;
+    color: #405040;
+}
+
+.hero-card {
+    background: #ffffff;
+    border: 1px solid #d8e8d1;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 12px 28px rgba(15, 61, 46, 0.08);
+}
+
+.hero-card-icon {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.hero-card h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #1C2B22;
+}
+
+.hero-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hero-card li {
+    color: #405040;
+    font-weight: 600;
+}
+
+.hero-card li::before {
+    content: "✓";
+    color: #0F3D2E;
+    font-weight: 800;
+    margin-right: 8px;
 }
 
 /* 
@@ -383,18 +540,18 @@ body {
     Usado para ações alternativas, como "Ver culturas".
 */
 .btn-secondary {
-    padding: 13px 18px;
-    border-radius: 12px;
-    border: 1px solid #2f7d4f;
-    color: #2f7d4f;
+    padding: 14px 22px;
+    border-radius: 14px;
+    border: 1px solid #0F3D2E;
+    color: #0F3D2E;
     background: #ffffff;
-    font-weight: bold;
+    font-weight: 800;
     text-decoration: none;
-    font-family: "Nunito", Arial, Helvetica, sans-serif;
 }
 
 .btn-secondary:hover {
-    background: #eef8ea;
+    background: #EAF2E3;
+    transform: translateY(-1px);
 }
 
 /* 

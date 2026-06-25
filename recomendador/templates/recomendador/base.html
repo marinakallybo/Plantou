@@ -13,18 +13,27 @@
     <link rel="stylesheet" href="{% static 'recomendador/css/style.css' %}">
 </head>
 <body>
-    <header class="navbar">
-        <div class="navbar-brand">
-            <span class="logo">🌱</span>
-            <span>PéDeQuê?</span>
-        </div>
+    <div class="page-top">
+        <header class="navbar">
+            <a href="/" class="navbar-brand">
+                <span class="logo">🌱</span>
+                <span>PéDeQuê?</span>
+            </a>
 
-        <nav class="navbar-links">
-            <a href="/recomendar/">Recomendação</a>
-            <a href="/culturas/">Culturas</a>
-            <a href="/admin/">Admin</a>
-        </nav>
-    </header>
+            <nav class="navbar-center">
+                <a href="/recomendar/">Recomendação</a>
+                <a href="/culturas/">Culturas</a>
+                <a href="/">Sobre</a>
+            </nav>
+
+            <div class="navbar-right">
+                {% if user.is_authenticated and user.is_staff %}
+                    <a href="/admin/" class="admin-link">Admin</a>
+                {% endif %}
+                <a href="/recomendar/" class="nav-cta">Começar</a>
+            </div>
+        </header>
+    </div>
 
     <main class="container">
         {% block content %}
@@ -32,7 +41,7 @@
     </main>
 
     <footer class="footer">
-        <p>PéDeQuê? — Tecnologia para apoiar a agricultura familiar.</p>
+        <p>PéDeQuê? — tecnologia para apoiar pequenos produtores do plantio à colheita.</p>
     </footer>
 </body>
 </html>
