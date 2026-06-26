@@ -1,80 +1,95 @@
 # 🌱 PéDeQuê?
 
-**PéDeQuê?** é uma aplicação web desenvolvida em **Python** e **Django** para apoiar pequenos produtores e agricultores familiares na escolha de culturas mais adequadas para plantio.
+**PéDeQuê?** é uma aplicação web desenvolvida com **Python** e **Django** para apoiar pequenos produtores e agricultores familiares na escolha de culturas mais adequadas para plantio.
 
-A proposta do projeto é transformar informações como **temperatura**, **tipo de solo** e **umidade** em recomendações simples e acessíveis, ajudando o usuário a entender quais culturas possuem maior compatibilidade com as condições informadas.
+A plataforma recomenda culturas com base em condições como **temperatura**, **tipo de solo** e **umidade**, apresentando uma pontuação de compatibilidade e explicando os motivos por trás de cada recomendação.
 
----
-
-## 📌 Objetivo do projeto
-
-Muitos pequenos produtores precisam tomar decisões sobre o que plantar considerando clima, solo, disponibilidade de recursos e custo. O **PéDeQuê?** nasce como uma ferramenta inicial para apoiar essa tomada de decisão.
-
-Nesta primeira versão, o sistema permite:
-
-* Cadastrar culturas agrícolas em um banco de dados;
-* Importar culturas automaticamente a partir de um arquivo CSV;
-* Listar culturas cadastradas;
-* Gerar recomendações com base em temperatura, solo e umidade;
-* Exibir uma pontuação de compatibilidade para cada cultura recomendada.
-
-Futuramente, a ideia é evoluir o projeto para uma plataforma mais completa, com integração a APIs climáticas, preços médios de sementes, fornecedores, conteúdos educativos e ferramentas para agricultura familiar.
+> A ideia central do projeto é responder, de forma simples e acessível:
+> **“Com essas condições, pé de quê eu posso plantar?”**
 
 ---
 
-## 🚀 Funcionalidades atuais
+## 📌 Status do projeto
 
-* ✅ Aplicação web com Django;
-* ✅ Banco de dados com culturas agrícolas;
-* ✅ Importação de culturas via CSV;
-* ✅ Página de listagem de culturas;
-* ✅ Página de recomendação de culturas;
-* ✅ Cálculo de compatibilidade com base em regras;
-* ✅ Interface estilizada com HTML e CSS;
-* ✅ Estrutura inicial preparada para futuras integrações.
+🚧 Projeto em desenvolvimento.
+
+Atualmente, o sistema já possui:
+
+* Banco de culturas agrícolas;
+* Importação de culturas via CSV;
+* Página inicial estilizada;
+* Listagem de culturas cadastradas;
+* Formulário de recomendação;
+* Cálculo de compatibilidade baseado em regras;
+* Interface web com HTML e CSS;
+* Estrutura preparada para futuras integrações com APIs.
 
 ---
 
-## 🧠 Como funciona a recomendação?
+## 🎯 Problema
 
-O usuário informa:
+Pequenos produtores muitas vezes precisam decidir o que plantar considerando diferentes fatores, como clima, solo, umidade, época de plantio, custo e tempo de colheita.
+
+Essa decisão pode ser difícil quando as informações estão espalhadas, são muito técnicas ou não estão adaptadas à realidade da agricultura familiar.
+
+---
+
+## 💡 Solução proposta
+
+O **PéDeQuê?** propõe uma ferramenta simples para transformar dados agrícolas em recomendações compreensíveis.
+
+Na primeira versão, o usuário informa:
 
 * Temperatura média;
 * Tipo de solo;
 * Umidade.
 
-A aplicação compara essas informações com as condições ideais cadastradas para cada cultura.
+Com base nesses dados, o sistema compara as condições informadas com as características ideais de cada cultura cadastrada no banco e retorna as opções mais compatíveis.
 
-A pontuação inicial segue a lógica:
+---
 
-| Critério                          |  Pontuação |
-| --------------------------------- | ---------: |
-| Temperatura dentro da faixa ideal | +40 pontos |
-| Solo compatível                   | +30 pontos |
-| Umidade compatível                | +30 pontos |
+## ✨ Funcionalidades
 
-A partir disso, o sistema ordena as culturas pela maior pontuação e exibe as melhores recomendações.
+### Página inicial
+
+Apresenta a proposta do projeto e direciona o usuário para as principais funcionalidades.
+
+### Listagem de culturas
+
+Exibe as culturas cadastradas no banco, mostrando informações como temperatura ideal, solo, umidade, época de plantio, tempo de colheita e dificuldade.
+
+### Recomendador de culturas
+
+Permite que o usuário informe as condições do plantio e receba uma lista de culturas recomendadas com pontuação de compatibilidade.
+
+### Importação via CSV
+
+As culturas podem ser cadastradas em massa por meio de um arquivo CSV, facilitando a manutenção e expansão da base de dados.
+
+### Painel administrativo
+
+O projeto utiliza o Django Admin para gerenciar culturas cadastradas no banco de dados.
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-* Python
-* Django
-* SQLite
-* HTML
-* CSS
-* CSV
-* Git e GitHub
+* **Python**
+* **Django**
+* **SQLite**
+* **HTML**
+* **CSS**
+* **CSV**
+* **Git e GitHub**
 
 ---
 
-## 📁 Estrutura do projeto
+## 🗂️ Estrutura do projeto
 
 ```text
-AgroSeed/
+PéDeQuê/
 │
-├── agroseed/
+├── plantou/
 │   ├── settings.py
 │   ├── urls.py
 │   ├── asgi.py
@@ -109,6 +124,34 @@ AgroSeed/
 ├── LICENSE
 └── README.md
 ```
+
+> Observação: `plantou/` é a pasta técnica de configuração do projeto Django. O nome público da aplicação é **PéDeQuê?**.
+
+---
+
+## 📊 Dados utilizados
+
+Atualmente, os dados das culturas estão armazenados localmente no arquivo:
+
+```text
+data/culturas.csv
+```
+
+Cada registro contém informações como:
+
+| Campo                 | Descrição                       |
+| --------------------- | ------------------------------- |
+| `nome`                | Nome da cultura                 |
+| `descricao`           | Descrição geral da cultura      |
+| `temperatura_minima`  | Temperatura mínima recomendada  |
+| `temperatura_maxima`  | Temperatura máxima recomendada  |
+| `solo_ideal`          | Tipo de solo mais adequado      |
+| `umidade_ideal`       | Umidade recomendada             |
+| `epoca_plantio`       | Melhor época de plantio         |
+| `tempo_colheita_dias` | Tempo médio até a colheita      |
+| `dificuldade`         | Nível de dificuldade do cultivo |
+
+A base de culturas é importada para o banco usando um comando customizado do Django.
 
 ---
 
@@ -160,7 +203,7 @@ Depois tente ativar novamente:
 pip install django
 ```
 
-Se o projeto tiver um arquivo `requirements.txt`, utilize:
+Caso exista um arquivo `requirements.txt`, utilize:
 
 ```bash
 pip install -r requirements.txt
@@ -182,17 +225,11 @@ python manage.py migrate
 python manage.py importar_culturas
 ```
 
-Esse comando lê o arquivo:
-
-```text
-data/culturas.csv
-```
-
-E cadastra ou atualiza as culturas no banco de dados.
+Esse comando lê o arquivo `data/culturas.csv` e cadastra ou atualiza as culturas no banco de dados.
 
 ---
 
-### 6. Rode o servidor
+### 6. Rode o servidor local
 
 ```bash
 python manage.py runserver
@@ -206,95 +243,76 @@ http://127.0.0.1:8000/
 
 ---
 
-## 🌾 Páginas principais
+## 🌐 Rotas principais
 
-| Página         | Descrição                       |
+| Rota           | Descrição                       |
 | -------------- | ------------------------------- |
-| `/`            | Página inicial do projeto       |
+| `/`            | Página inicial                  |
 | `/culturas/`   | Lista de culturas cadastradas   |
 | `/recomendar/` | Formulário de recomendação      |
 | `/admin/`      | Painel administrativo do Django |
 
 ---
 
-## 🧪 Exemplo de uso
+## 🖼️ Interface
 
-O usuário informa:
-
-```text
-Temperatura: 23°C
-Solo: argiloso
-Umidade: média
-```
-
-O sistema pode retornar recomendações como:
-
-```text
-Alface — 100% compatível
-Couve — 100% compatível
-Tomate — 100% compatível
-Feijão — 100% compatível
-Milho — 100% compatível
-```
-
-Cada resultado apresenta informações como:
-
-* Descrição da cultura;
-* Temperatura ideal;
-* Tipo de solo ideal;
-* Umidade ideal;
-* Época de plantio;
-* Tempo médio de colheita;
-* Dificuldade de cultivo;
-* Motivos da recomendação.
+<img width="1872" height="931" alt="image" src="https://github.com/user-attachments/assets/0e74a363-a331-43cb-ab65-749ffaa46ee6" />
 
 ---
 
-## 📊 Dados utilizados
+## 🔮 Roadmap
 
-Atualmente, os dados das culturas são armazenados em um arquivo CSV local.
-
-Cada cultura possui informações como:
-
-* Nome;
-* Descrição;
-* Temperatura mínima;
-* Temperatura máxima;
-* Solo ideal;
-* Umidade ideal;
-* Época de plantio;
-* Tempo de colheita;
-* Dificuldade.
-
-Em versões futuras, a base de dados poderá ser enriquecida com fontes externas e APIs públicas.
-
----
-
-## 🔮 Próximas melhorias
+### Melhorias planejadas para o MVP
 
 * [ ] Melhorar a lógica de pontuação da recomendação;
 * [ ] Considerar temperaturas próximas da faixa ideal;
+* [ ] Exibir apenas as melhores recomendações;
+* [ ] Criar histórico de consultas;
+* [ ] Adicionar filtros por dificuldade, tempo de colheita e época de plantio;
+* [ ] Adicionar imagens ou ícones para as culturas;
+* [ ] Melhorar a responsividade da interface.
+
+### Integrações futuras
+
 * [ ] Permitir busca por cidade ou região;
 * [ ] Integrar API climática para obter temperatura e umidade automaticamente;
 * [ ] Adicionar preço médio de sementes como fator de recomendação;
-* [ ] Criar histórico de consultas;
-* [ ] Adicionar imagens das culturas;
-* [ ] Criar filtros por dificuldade, tempo de colheita e época de plantio;
+* [ ] Criar estrutura para fornecedores e preços;
+* [ ] Explorar dados públicos e APIs agrícolas.
+
+### Visão de plataforma
+
 * [ ] Criar área educativa com conteúdos para pequenos produtores;
-* [ ] Evoluir para uma plataforma/hub de ferramentas agro.
+* [ ] Criar calendário de plantio;
+* [ ] Criar fórum ou espaço de troca entre produtores;
+* [ ] Evoluir para um hub de ferramentas voltadas à agricultura familiar.
 
 ---
 
-## 💡 Visão futura
+## 🌱 Visão futura
 
 A ideia do **PéDeQuê?** é crescer além de um recomendador de culturas.
 
-No futuro, a plataforma poderá reunir:
+No futuro, a plataforma poderá reunir dados climáticos, preços de sementes, fornecedores, conteúdos educativos e ferramentas comunitárias em um único ambiente para apoiar pequenos produtores do plantio à colheita.
 
-* Consulta climática por região;
-* Comparação de preços de sementes;
-* Indicação de fornecedores;
-* Fórum para pequenos produtores;
-* Blog educativo;
-* Calendário de plantio;
-* Ferramentas de apoio à agricultura familiar.
+Possíveis módulos futuros:
+
+* **PéDeQuê? Clima** — consulta climática por região;
+* **PéDeQuê? Mercado** — comparação de preços de sementes;
+* **PéDeQuê? Aprenda** — conteúdos educativos;
+* **PéDeQuê? Comunidade** — troca de experiências entre produtores;
+* **PéDeQuê? Fornecedores** — conexão com vendedores e pequenos empreendedores.
+
+---
+
+## 👩‍💻 Desenvolvido por
+
+Desenvolvido por **Marina Kally Bernardo de Oliveira** como projeto de estudo em desenvolvimento web com Python, Django, banco de dados e construção de aplicações orientadas a dados.
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT.
+
+As bases de dados, APIs ou fontes externas integradas futuramente pertencem aos seus respectivos provedores e devem seguir seus próprios termos de uso.
